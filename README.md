@@ -90,16 +90,12 @@ You only need a Unix-like terminal with the following software:
 2. Build the two programs
 
    ```sh
-   cd push-swap
-   go build -o push-swap
-   chmod +x push-swap
-   mv push-swap ../push-swap
-   cd ..
-   cd checker
-   go build -o checker
-   chmod +x checker
-   mv checker ../checker
-   cd ..
+   go build push-swap/main.go
+   chmod +x push-swap/main
+   mv push-swap/main push-swap
+   go build checker/main.go
+   chmod +x checker/main
+   mv checker/main checker
    ```
 
 <p align="right">(<a href="#push-swap">back to top</a>)</p>
