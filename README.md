@@ -73,7 +73,7 @@ To get a local copy up and running follow these simple steps.
 
 You only need a Unix-like terminal with the following software:
 
-- Go programming language (v1.22.0 or newer)
+- Go programming language (v1.23.0 or newer)
   ```sh
   go version
   ```
@@ -87,16 +87,19 @@ You only need a Unix-like terminal with the following software:
    cd push-swap
    ```
 
-2. Build the app
+2. Build the two programs
 
    ```sh
+   cd push-swap
+   go build -o push-swap
+   chmod +x push-swap
+   mv push-swap ../push-swap
+   cd ..
+   cd checker
    go build -o checker
    chmod +x checker
-   ```
-
-3. Run the app
-   ```sh
-   ./checker
+   mv checker ../checker
+   cd ..
    ```
 
 <p align="right">(<a href="#push-swap">back to top</a>)</p>
@@ -105,10 +108,11 @@ You only need a Unix-like terminal with the following software:
 
 ## Usage
 
-You can run the program as the following:
+You can test the program as the following:
 
    ```sh
-   go run .
+   ./push-swap "2 1 3 6 5 8"
+   ./checker "3 2 1 0"
    ```
 
 <p align="right">(<a href="#push-swap">back to top</a>)</p>
