@@ -90,17 +90,8 @@ You only need a Unix-like terminal with the following software:
 2. Build the two programs
 
    ```sh
-   cd controller/push-swap/
-   go build main.go
-   chmod u+x main
-   mv main ../../push-swap
-   cd ../../
-   cd controller/checker/
-   go build main.go
-   chmod u+x main
-   mv main ../../checker
-   cd ../../
-   
+   chmod u+x build.sh
+   ./build.sh
    ```
 
 <p align="right">(<a href="#push-swap">back to top</a>)</p>
@@ -112,8 +103,8 @@ You only need a Unix-like terminal with the following software:
 You can test the program as the following:
 
 ```sh
-./push-swap "2 1 3 6 5 8"
-./checker "3 2 1 0"
+chmod u+x test.sh
+./test.sh
 ```
 
 <p align="right">(<a href="#push-swap">back to top</a>)</p>
