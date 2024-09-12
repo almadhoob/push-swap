@@ -74,18 +74,50 @@ func rra(a *Stack) {
 	fmt.Println("rra")
 }
 
+func isSorted(s *Stack) bool {
+	for i := 1; i < len(*s); i++ {
+		if (*s)[i-1] > (*s)[i] {
+			return false
+		}
+	}
+	return true
+}
+
+func findPivot(s *Stack) int {
+	if len(*s) == 0 {
+		return 0
+	}
+	sum := 0
+	for _, v := range *s {
+		sum += v
+	}
+	return sum / len(*s)
+}
+
+func sb(b *Stack) {
+	b.Swap()
+	fmt.Println("sb")
+}
+
 func sortStack(a, b *Stack) {
+	if isSorted(a) {
+		return
+	}
+
 	if len(*a) <= 3 {
 		sortThree(a)
 		return
 	}
 
-	mid := (*a)[len(*a)/2]
+	pivot := findPivot(a)
 	for len(*a) > 3 {
-		if (*a)[0] < mid {
+		if (*a)[0] <= pivot {
 			pb(a, b)
 		} else {
 			ra(a)
+		}
+		if len(*b) > 1 && (*b)[0] < (*b)[1] {
+			sb(b)
 		}
 	}
 
@@ -96,6 +128,11 @@ func sortStack(a, b *Stack) {
 		if (*a)[0] > (*a)[1] {
 			sa(a)
 		}
+	}
+
+	for !isSorted(a) {
+		sortThree(a)
+		ra(a)
 	}
 }
 
